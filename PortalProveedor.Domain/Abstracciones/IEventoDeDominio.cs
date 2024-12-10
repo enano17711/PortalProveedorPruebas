@@ -2,7 +2,7 @@
 
 namespace PortalProveedor.Domain.Abstracciones;
 
-public interface IDomainEvent : INotification
+public interface IEventoDeDominio : INotification
 {
     
 }

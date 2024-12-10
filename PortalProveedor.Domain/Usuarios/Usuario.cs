@@ -1,4 +1,5 @@
 ﻿using PortalProveedor.Domain.Abstracciones;
+using PortalProveedor.Domain.Usuarios.Eventos;
 
 namespace PortalProveedor.Domain.Usuarios;
 
@@ -18,6 +19,9 @@ public sealed class Usuario : Entidad
     public static Usuario Crear(Nombre nombre, Apellido apellido, Correo correo)
     {
         var usuario = new Usuario(Guid.NewGuid(), nombre, apellido, correo);
+
+        usuario.AgregarEventoDeDominio(new UsuarioCreadoEventoDeDominio(usuario.Id));
+
         return usuario;
     }
 }
